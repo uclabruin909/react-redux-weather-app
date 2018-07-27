@@ -8,6 +8,16 @@ class SearchBar extends Component {
 		this.state = {
 			term: ''
 		};
+
+		this.onInputChange = this.onInputChange.bind(this);
+	}
+
+	onInputChange(event) {
+		let newTerm = event.target.value;
+		console.log(newTerm)
+		this.setState({
+			term: newTerm
+		});
 	}
 
 	render() {
@@ -15,7 +25,8 @@ class SearchBar extends Component {
 			<form className="input-group">
 				<input placeholder="Search for city"
 					className="form-control"
-					vale={this.state.term}
+					value={this.state.term}
+					onChange={this.onInputChange}
 				></input>
 				<span className="input-group-btn">
 					<button type="submit" className="btn btn-primary">Submit</button>
