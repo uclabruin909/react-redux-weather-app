@@ -58,7 +58,7 @@ function mapDispatchToProps(dispatch) {
 
   return bindActionCreators({
     fetchWeather: fetchWeather,
-  });
+  }, dispatch);
 
 }
 
