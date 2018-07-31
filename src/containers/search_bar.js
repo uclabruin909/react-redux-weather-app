@@ -13,6 +13,7 @@ class SearchBar extends Component {
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 
 	onInputChange(event) {
@@ -25,6 +26,15 @@ class SearchBar extends Component {
 
 	onFormSubmit(event) {
 		event.preventDefault();
+    let city = this.state.term;
+
+    this.props.fetchWeather(city);
+
+    //reset term state to refresh input
+    this.setState({
+      term: ''
+    });
+
 	}
 
 	render() {
